@@ -12,60 +12,66 @@
     <title>Editar Estudiante</title>
 </head>
 <body>
-   
-  <div class="container-fluid bg-dark text-light py-5">
+  
+  <div class="p-5 mb-4 text-bg-dark container-fluid">
     <div class="container">
-      <h1 class="display-5 fw-bold">Editar Estudiantes</h1>
+      <h1 class="display-5 fw-bold">Editar Estudiante</h1>
     </div>
   </div>
     <div class="container">
       <div class="card">
           <div class="card-header">
-              <span class="text-primary">Datos para editar</span>
+              <span class="">Datos del Estudiante</span>
           </div>
           <div class="card-body">
-              <form method="POST" class="form-horizontal">
-                  
+            <form method="POST" class="form-horizontal" action="{{ route('estudiantes.update', ['estudiante' => $estudiante->id]) }}">
+                @method('put')
+                @csrf
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="nombre">ID:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre "
+                        disabled value="{{ $estudiante -> id}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre "
+                        value="{{ $estudiante -> nombre}}">
+                    </div>
+                </div>
                   <div class="form-group">
-                      <label class="control-label col-sm-2" for="id">Código del estudiante:</label>
+                      <label class="control-label col-sm-2" for="apellido">Apellido:</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" id="id" name="id" placeholder="Ingrese nuevo codigo"
-                         >
-                          <small id="idlHelp" class="form-text text-muted">ID del estudiante</small>
+                          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese el apellido "
+                          value="{{ $estudiante -> apellido}}">
+                      </div>
+                      <div class="form-group">
+                      <label class="control-label col-sm-2" for="fecha">Fecha de nacimiento:</label>
+                      <div class="col-sm-10">
+                          <input type="date" class="form-control" id="fecha" name="fecha" placeholder="Ingrese la fecha de nacimiento "
+                          value="{{ $estudiante -> fechanacimiento}}">
+                      </div>
+                      <div class="form-group">
+                      <label class="control-label col-sm-2" for="email">Correo:</label>
+                      <div class="col-sm-10">
+                          <input type="text" class="form-control" id="email" name="email" placeholder="Ingrese el correo "
+                          value="{{ $estudiante -> email}}">
+                      </div>
+                          </select>
                       </div>
                   </div>
-                  <div class="form-group">
-                      <label class="control-label col-sm-2" for="name">Nombre:</label>
-                      <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre"
-                          >
+                  <div class="form-group mt-3">
+                      <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-dark">Actualizar</button>
+                          <a class="btn btn-secondary" href="{{ route('estudiantes.index') }}">Volver</a>
                       </div>
-                      <label class="control-label col-sm-2" for="name">Apellido:</label>
-                      <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el apellido"
-                          >
-                      </div>
-                      
-                      <label class="control-label col-sm-2" for="name">Fecha de nacimiento:</label>
-                      <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese fecha de nacimiento"
-                          >
-                      </div>
-                      
-                      <label class="control-label col-sm-2" for="name">Correo electronico:</label>
-                      <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su correo"
-                          >
-                      </div>
-                      
                   </div>
-                 
-                  </div>
-                  <button type="submit" class="btn btn-success">Guardar cambios</button> 
               </form>
           </div>
       </div>
   </div>
-  
+
 </body>
 </html>

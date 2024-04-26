@@ -74,7 +74,11 @@ class EstudianteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estudiante = Estudiante::find($id);
+        $estudiantes = DB::table('estudiantes')
+        ->orderBy('nombre')
+        ->get();
+        return view('estudiantes.edit', ['estudiante' => $estudiante, 'estudiantes' => $estudiantes]);
     }
 
     /**
@@ -86,7 +90,19 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $estudiante = Estudiante::find($id);
+        $estudiante -> nombre = $request -> nombre;
+        $estudiante -> apellido = $request -> apellido;
+        $estudiante -> fechanacimiento = $request -> fecha;
+        $estudiante -> email = $request -> email;
+
+        $estudiante->save();
+
+        $estudiantes = DB::table('estudiantes')
+        ->orderBy('nombre')
+        ->get();
+        return view('estudiantes.index', ['estudiantes' => $estudiantes]);
     }
 
     /**
