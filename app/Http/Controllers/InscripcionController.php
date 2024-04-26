@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inscripcion;
+use Illuminate\Support\Facades\DB;
 
 class InscripcionController extends Controller
 {
@@ -14,8 +15,13 @@ class InscripcionController extends Controller
      */
     public function index()
     {
-        $inscripciones = Inscripcion::all();
-       return view('inscripciones.index',['inscripciones' => $inscripciones]);
+        $inscripciones = DB::table('inscripciones')
+    ->join('estudiantes', 'inscripciones.estudiante_id', '=', 'estudiantes.id')
+    ->join('cursos', 'inscripciones.curso_id', '=', 'cursos.id')
+    ->select('inscripciones.*', 'estudiantes.nombre as nombre_estudiante', 'cursos.nombre as nombre_curso')
+    ->get();
+
+return view('inscripciones.index', ['inscripciones' => $inscripciones]);
     }
 
     /**
@@ -25,7 +31,15 @@ class InscripcionController extends Controller
      */
     public function create()
     {
-        //
+        $estudiantes = DB::table('estudiantes')
+        ->orderBy('nombre')
+        ->get();
+
+        $cursos = DB::table('cursos')
+        ->orderBy('nombre')
+        ->get();
+
+        return view('inscripciones.new', ['estudiantes' => $estudiantes, 'cursos' => $cursos]);
     }
 
     /**
@@ -36,7 +50,25 @@ class InscripcionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inscripcion = new Inscripcion();
+        $inscripcion->estudiante_id = $request->estudiante_id;
+        $inscripcion->curso_id = $request->curso_id;
+        $inscripcion->fecha_inscripcion = $request->fecha_inscripcion;
+        $inscripcion->save();
+
+    // Obtener todos los registros de inscripciones con join a estudiantes y cursos
+    $inscripciones = DB::table('inscripciones')
+    ->join('estudiantes', 'inscripciones.estudiante_id', '=', 'estudiantes.id')
+    ->join('cursos', 'inscripciones.curso_id', '=', 'cursos.id')
+    ->select('inscripciones.*', 'estudiantes.nombre as nombre_estudiante', 'cursos.nombre as nombre_curso')
+    ->get();
+
+        
+
+        // Pasar los datos a la vista
+        return view('inscripciones.index', [
+            'inscripciones' => $inscripciones
+        ]);
     }
 
     /**

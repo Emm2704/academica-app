@@ -17,13 +17,13 @@
   @include('navbar')
     <div class="container">
         <h1>Listado de Inscripcion</h1>
-       
+        <a href="{{ route('inscripciones.create') }}" class="btn btn-dark" style="margin-bottom: 1%">Nuevo</a>
         <table class="table table-dark table-striped">
             <thead>
               <tr>
                 <th scope="col">Codigo</th>
-                <th scope="col">ID Estudiante</th>
-                <th scope="col">ID Curso</th>
+                <th scope="col">Estudiante</th>
+                <th scope="col">Curso</th>
                 <th scope="col">Fecha de inscripcion</th>
               </tr>
             </thead>
@@ -31,8 +31,8 @@
               @foreach ($inscripciones as $inscripcion)
               <tr>
                 <th scope="row">{{ $inscripcion->id }}</th>
-                <td>{{ $inscripcion->estudiante_id }}</td>
-                <td>{{ $inscripcion->curso_id }}</td>
+                <td>{{ $inscripcion->nombre_estudiante }}</td>
+                <td>{{ $inscripcion->nombre_curso }}</td>
                 <td>{{ $inscripcion->fecha_inscripcion }}</td>
                 {{-- <td>
                   <a href="{{ route('estudiantes.edit', ['estudiante'=>$estudiante->id]) }}"

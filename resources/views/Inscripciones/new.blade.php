@@ -15,7 +15,7 @@
   
   <div class="p-5 mb-4 text-bg-dark container-fluid">
     <div class="container">
-      <h1 class="display-5 fw-bold">Agregar Inscripcion</h1>
+      <h1 class="display-5 fw-bold">Agregar Inscripción</h1>
     </div>
   </div>
     <div class="container">
@@ -24,38 +24,35 @@
               <span class="text-primary">Datos para la inscripcion</span>
           </div>
           <div class="card-body">
-             
-                 
+            <form method="POST" class="form-horizontal" action="{{ route('inscripciones.store') }}">
+                @csrf
+                  
                   <div class="form-group">
-                      <label class="control-label col-sm-2" for="id">Código de la inscripcion:</label>
+                      <label class="control-label col-sm-2" for="estudiante_id">Codigo del estudiante:</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" id="id" name="id" placeholder="Ingrese el código ">
-                          <div id="idlHelp" class="form-text">ID del la inscripcion</div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="control-label col-sm-2" for="name">Codigo del estudiante:</label>
-                      <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el codigo ">
-                          <div id="idlHelp" class="form-text">ID del estudiante</div>
-                      </div>
+                        <select class="form-select" id="estudiante_id" name="estudiante_id" required>
+                            <option selected disabled value="">Seleccione uno...</option>
+                            @foreach ($estudiantes as $estudiante)
+                                <option value="{{ $estudiante->id }}">{{ $estudiante->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                   </div>
                 
                       <div class="form-group">
-                      <label class="control-label col-sm-2" for="department">Codigo del curso:</label>
+                      <label class="control-label col-sm-2" for="curso_id">Codigo del curso:</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el codigo ">
-                          <div id="idlHelp" class="form-text">ID del curso</div>
-                      </div>
+                        <select class="form-select" id="curso_id" name="curso_id" required>
+                            <option selected disabled value="">Seleccione uno...</option>
+                            @foreach ($cursos as $curso)
+                                <option value="{{ $curso->id }}">{{ $curso->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                       <div class="form-group">
-                      <label class="control-label col-sm-2" for="department">Fecha de inscripcion:</label>
+                      <label class="control-label col-sm-2" for="fecha_inscripcion">Fecha de inscripcion:</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese la fecha ">
-                      </div>
-                             
-                                  
-                             
-                          </select>
+                          <input type="date" class="form-control" id="fecha_inscripcion" name="fecha_inscripcion" placeholder="Ingrese la fecha ">
                       </div>
                   </div>
                   <div class="form-group mt-3">
