@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class EstudianteController extends Controller
 {
@@ -25,7 +27,10 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        //
+        $estudiantes = DB::table('estudiantes')
+        ->orderBy('nombre')
+        ->get();
+        return view('estudiantes.new', ['estudiantes' => $estudiantes]);
     }
 
     /**
@@ -36,7 +41,18 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $estudiante = new Estudiante();
+        $estudiante -> nombre = $request -> nombre;
+        $estudiante -> apellido = $request -> apellido;
+        $estudiante -> fechanacimiento = $request -> fecha;
+        $estudiante -> email = $request -> email;
+
+        $estudiante->save();
+
+        $estudiantes = DB::table('estudiantes')
+        ->orderBy('nombre')
+        ->get();
+        return view('estudiantes.index', ['estudiantes' => $estudiantes]);
     }
 
     /**

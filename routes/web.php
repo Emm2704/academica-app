@@ -23,11 +23,8 @@ Route::get('/', function () {
 
 // Estudiantes
 
-Route::get('/estudiantes', [EstudianteController::class, 'index']) -> name('estudiantes.index');
+Route::resource('estudiantes', EstudianteController::class);
 
-Route::get('/nuevoestudiante', function () {
-    return view('estudiantes.new');
-});
 
 Route::get('/editarestudiante', function () {
     return view('estudiantes.edit');

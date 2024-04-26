@@ -17,7 +17,6 @@
   @include('navbar')
     <div class="container">
         <h1>Listado de cursos</h1>
-       
         <table class="table table-dark table-striped">
             <thead>
               <tr>
