@@ -14,7 +14,7 @@
 
 </head>
 <body>
-
+  @include('navbar')
     <div class="container">
         <h1>Listado de cursos</h1>
        
@@ -25,14 +25,19 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Duracion</th>
+                <th scope="col">Acciones</th>
                 
               </tr>
             </thead>
             <tbody>
-              
-                 
-                
-                 
+              <td scope="col">1234</td>
+              <td scope="col">Música</td>
+              <td scope="col">Descripcion</td>
+              <td scope="col">5 Hrs</td>
+              <td scope="col">
+                <a class="btn btn-info">Editar</a>
+                <a class="btn btn-danger">Eliminar</a>
+              </td>
                   </form>
                 </td>
               </tr>
@@ -41,6 +46,6 @@
           </table>
 
     </div>
-    
+    @include('footer')
 </body>
 </html>

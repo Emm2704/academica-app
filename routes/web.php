@@ -17,14 +17,48 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('Cursos/edit');
+
+
+
+// Estudiantes
+
+Route::get('/estudiantes', function () {
+    return view('estudiantes.index');
+})->name('estudiantes.index');
+
+Route::get('/nuevoestudiante', function () {
+    return view('estudiantes.new');
 });
 
-Route::get('/', function () {
-    return view('Estudiantes/new');
+Route::get('/editarestudiante', function () {
+    return view('estudiantes.edit');
 });
 
-Route::get('/', function () {
-    return view('Inscripciones/index');
+// Cursos
+
+Route::get('/cursos', function () {
+    return view('cursos.index');
+})->name('cursos.index');
+
+Route::get('/nuevocurso', function () {
+    return view('cursos.new');
+});
+
+Route::get('/editarcurso', function () {
+    return view('cursos.edit');
+});
+
+
+// Inscripciones
+
+Route::get('/inscripciones', function () {
+    return view('inscripciones.index');
+})->name('inscripciones.index');
+
+Route::get('/nuevainscripcion', function () {
+    return view('inscripciones.new');
+});
+
+Route::get('/editarinscripcion', function () {
+    return view('inscripciones.edit');
 });

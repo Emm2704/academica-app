@@ -14,7 +14,7 @@
 
 </head>
 <body>
-
+  @include('navbar')
     <div class="container">
         <h1>Listado de cursos</h1>
        
@@ -41,6 +41,6 @@
           </table>
 
     </div>
-    
+    @include('footer')
 </body>
 </html>
