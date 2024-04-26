@@ -17,8 +17,8 @@
   @include('navbar')
     <div class="container">
         <h1>Listado de Estudiantes</h1>
-        <a href="{{ route('estudiantes.create') }}" class="btn btn-dark">Nuevo</a>
-        <table class="table table-dark table-striped" style="margin-top: 1%">
+        <a href="{{ route('estudiantes.create') }}" class="btn btn-dark" style="margin-bottom: 1%">Nuevo</a>
+        <table class="table table-dark table-striped">
             <thead>
               <tr>
                 <th scope="col">Codigo</th>

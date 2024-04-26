@@ -24,32 +24,26 @@
               <span class="text-primary">Datos del Curso</span>
           </div>
           <div class="card-body">
-             
-                 
+            <form method="POST" class="form-horizontal" action="{{ route('cursos.store') }}">
+                @csrf
                   <div class="form-group">
-                      <label class="control-label col-sm-2" for="id">Código Curso:</label>
+                      <label class="control-label col-sm-2" for="nombre">Nombre Curso:</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" id="id" name="id" placeholder="Ingrese código del Curso">
-                          <div id="idlHelp" class="form-text">ID del Curso</div>
+                          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese nombre del Curso">
                       </div>
                   </div>
                   <div class="form-group">
-                      <label class="control-label col-sm-2" for="name">Nombre Curso:</label>
-                      <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre del Curso">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="control-label col-sm-2" for="department">Duracion Curso:</label>
-                      <div class="col-sm-10">
-                          <select class="form-select" id="department" name="code" required>
-                              <option selected disabled value="">Seleccione una...</option>
-                             
-                                  
-                             
-                          </select>
-                      </div>
-                  </div>
+                    <label class="control-label col-sm-2" for="descripcion">Descripción Curso:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese descripcion del Curso">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="duracion">Duración Curso:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="duracion" name="duracion" placeholder="6 Semanas">
+                    </div>
+                </div>
                   <div class="form-group mt-3">
                       <div class="col-sm-offset-2 col-sm-10">
                           <button type="submit" class="btn btn-primary">Guardar</button>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Curso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CursoController extends Controller
 {
@@ -25,7 +26,10 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        $cursos = DB::table('cursos')
+        ->orderBy('id')
+        ->get();
+        return view('cursos.new', ['cursos' => $cursos]);
     }
 
     /**
@@ -36,7 +40,17 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $curso = new Curso();
+        $curso -> nombre = $request -> nombre;
+        $curso -> descripcion = $request -> descripcion;
+        $curso -> duracion = $request -> duracion;
+
+        $curso->save();
+
+        $cursos = DB::table('cursos')
+        ->orderBy('id')
+        ->get();
+        return view('cursos.index', ['cursos' => $cursos]);
     }
 
     /**
