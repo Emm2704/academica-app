@@ -56,19 +56,13 @@ return view('inscripciones.index', ['inscripciones' => $inscripciones]);
         $inscripcion->fecha_inscripcion = $request->fecha_inscripcion;
         $inscripcion->save();
 
-    // Obtener todos los registros de inscripciones con join a estudiantes y cursos
-    $inscripciones = DB::table('inscripciones')
-    ->join('estudiantes', 'inscripciones.estudiante_id', '=', 'estudiantes.id')
-    ->join('cursos', 'inscripciones.curso_id', '=', 'cursos.id')
-    ->select('inscripciones.*', 'estudiantes.nombre as nombre_estudiante', 'cursos.nombre as nombre_curso')
-    ->get();
+        $inscripciones = DB::table('inscripciones')
+        ->join('estudiantes', 'inscripciones.estudiante_id', '=', 'estudiantes.id')
+        ->join('cursos', 'inscripciones.curso_id', '=', 'cursos.id')
+        ->select('inscripciones.*', 'estudiantes.nombre as nombre_estudiante', 'cursos.nombre as nombre_curso')
+        ->get();
 
-        
-
-        // Pasar los datos a la vista
-        return view('inscripciones.index', [
-            'inscripciones' => $inscripciones
-        ]);
+        return view('inscripciones.index', ['inscripciones' => $inscripciones]);
     }
 
     /**
@@ -113,6 +107,15 @@ return view('inscripciones.index', ['inscripciones' => $inscripciones]);
      */
     public function destroy($id)
     {
-        //
+        $inscripcion = Inscripcion::find($id);
+        $inscripcion->delete();
+
+        $inscripciones = DB::table('inscripciones')
+        ->join('estudiantes', 'inscripciones.estudiante_id', '=', 'estudiantes.id')
+        ->join('cursos', 'inscripciones.curso_id', '=', 'cursos.id')
+        ->select('inscripciones.*', 'estudiantes.nombre as nombre_estudiante', 'cursos.nombre as nombre_curso')
+        ->get();
+
+        return view('inscripciones.index', ['inscripciones' => $inscripciones]);
     }
 }

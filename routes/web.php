@@ -35,4 +35,19 @@ Route::resource('cursos', CursoController::class);
 
 // Inscripciones
 
-Route::resource('inscripciones', InscripcionController::class);
+Route::resource('inscripciones', InscripcionController::class)->parameters([
+    'inscripciones' => 'inscripcion',
+]);
+
+
+// Route::get('/inscripciones', [InscripcionController::class, 'index']) -> name('inscripciones.index');
+
+// Route::post('/inscripciones', [InscripcionController::class, 'store']) -> name('inscripciones.store');
+
+// Route::get('/inscripciones/create', [InscripcionController::class, 'create'])->name('inscripciones.create');
+
+// Route::delete('/inscripciones{inscripcion}', [InscripcionController::class, 'destroy'])->name('inscripciones.destroy');
+
+// Route::put('/inscripciones{inscripcion}', [InscripcionController::class, 'update']) -> name('inscripciones.update');
+
+// Route::get('/inscripciones{inscripcion}/edit', [InscripcionController::class, 'edit']) -> name('inscripciones.edit');

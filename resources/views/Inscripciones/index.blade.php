@@ -25,6 +25,7 @@
                 <th scope="col">Estudiante</th>
                 <th scope="col">Curso</th>
                 <th scope="col">Fecha de inscripcion</th>
+                <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -34,16 +35,16 @@
                 <td>{{ $inscripcion->nombre_estudiante }}</td>
                 <td>{{ $inscripcion->nombre_curso }}</td>
                 <td>{{ $inscripcion->fecha_inscripcion }}</td>
-                {{-- <td>
-                  <a href="{{ route('estudiantes.edit', ['estudiante'=>$estudiante->id]) }}"
-                    class="btn btn-secondary">Editar</a>
-                  <form action="{{ route('estudiantes.destroy', ['estudiante' => $estudiante->id]) }}"
-                    method='POST' style="display:inline-block">
-                    @method('delete')
-                    @csrf
-                    <input class="btn btn-danger" type="submit" value="Eliminar">
-                  </form>
-                </td> --}}
+                <td>
+                  {{-- <a href="{{ route('inscripciones.edit', ['inscripcion'=>$inscripcion->id]) }}"
+                    class="btn btn-secondary">Editar</a> --}}
+                    <form action="{{ route('inscripciones.destroy', ['inscripcion' => $inscripcion->id]) }}"
+                      method='POST' style="display:inline-block">
+                      @method('delete')
+                      @csrf
+                      <input class="btn btn-danger" type="submit" value="Eliminar">
+                    </form>
+                </td>
               </tr>
               @endforeach
             </tbody>
