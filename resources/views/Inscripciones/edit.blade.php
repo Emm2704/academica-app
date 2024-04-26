@@ -21,7 +21,7 @@
     <div class="container">
       <div class="card">
           <div class="card-header">
-              <span class="text-primary">Datos del curso</span>
+              <span class="text-primary">Datos de la inscripcion</span>
           </div>
           <div class="card-body">
               <form method="POST" class="form-horizontal">
@@ -35,9 +35,9 @@
                       </div>
                   </div>
                   <div class="form-group">
-                      <label class="control-label col-sm-2" for="name">Codigo del estudiante:</label>
+                      <label class="control-label col-sm-2" for="name">Nombre:</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su codigo de estudiante"
+                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese el nombre"
                           >
                           <small id="idlHelp" class="form-text text-muted">ID del estudiante</small>
                       </div>

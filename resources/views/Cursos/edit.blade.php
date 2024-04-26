@@ -51,6 +51,15 @@
                           <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese la duracion del curso"
                           >
                       </div>
+                      <div class="form-group mt-2">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Guardar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
                   </div>
                  
                   </div>

@@ -22,9 +22,9 @@ Route::get('/', function () {
 });
 
 Route::get('/', function () {
-    return view('Estudiantes/edit');
+    return view('Estudiantes/new');
 });
 
 Route::get('/', function () {
-    return view('Inscripciones/edit');
+    return view('Inscripciones/index');
 });

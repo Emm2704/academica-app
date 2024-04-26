@@ -15,13 +15,13 @@
    
   <div class="container-fluid bg-dark text-light py-5">
     <div class="container">
-      <h1 class="display-5 fw-bold">Estudiantes</h1>
+      <h1 class="display-5 fw-bold">Editar Estudiantes</h1>
     </div>
   </div>
     <div class="container">
       <div class="card">
           <div class="card-header">
-              <span class="text-primary">Datos para la inscripcion</span>
+              <span class="text-primary">Datos para editar</span>
           </div>
           <div class="card-body">
               <form method="POST" class="form-horizontal">
@@ -29,7 +29,7 @@
                   <div class="form-group">
                       <label class="control-label col-sm-2" for="id">Código del estudiante:</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" id="id" name="id" placeholder="Ingrese su codigo gonorrea"
+                          <input type="text" class="form-control" id="id" name="id" placeholder="Ingrese nuevo codigo"
                          >
                           <small id="idlHelp" class="form-text text-muted">ID del estudiante</small>
                       </div>
@@ -37,7 +37,7 @@
                   <div class="form-group">
                       <label class="control-label col-sm-2" for="name">Nombre:</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre del curso"
+                          <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese nombre"
                           >
                       </div>
                       <label class="control-label col-sm-2" for="name">Apellido:</label>
@@ -57,9 +57,11 @@
                           <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su correo"
                           >
                       </div>
+                      
                   </div>
                  
                   </div>
+                  <button type="submit" class="btn btn-success">Guardar cambios</button> 
               </form>
           </div>
       </div>
