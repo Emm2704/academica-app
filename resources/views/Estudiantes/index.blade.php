@@ -18,7 +18,7 @@
     <div class="container">
         <h1>Listado de Estudiantes</h1>
         <a href="{{ route('estudiantes.create') }}" class="btn btn-dark" style="margin-bottom: 1%">Nuevo</a>
-        <table class="table table-dark table-striped">
+        <table class="table table-dark table-striped" style="margin-bottom: 7%">
             <thead>
               <tr>
                 <th scope="col">Codigo</th>

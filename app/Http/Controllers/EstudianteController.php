@@ -90,7 +90,6 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $estudiante = Estudiante::find($id);
         $estudiante -> nombre = $request -> nombre;
         $estudiante -> apellido = $request -> apellido;
