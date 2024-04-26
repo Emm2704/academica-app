@@ -29,14 +29,15 @@
               </tr>
             </thead>
             <tbody>
-              
-                 
-                
-                 
-                  </form>
-                </td>
+              @foreach ($estudiantes as $estudiante)
+              <tr>
+                <th scope="row">{{ $estudiante->id }}</th>
+                <td>{{ $estudiante->nombre }}</td>
+                <td>{{ $estudiante->apellido }}</td>
+                <td>{{ $estudiante->fechanacimiento }}</td>
+                <td>{{ $estudiante->email }}</td>
               </tr>
-             
+              @endforeach
             </tbody>
           </table>
 
