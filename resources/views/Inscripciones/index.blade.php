@@ -36,8 +36,8 @@
                 <td>{{ $inscripcion->nombre_curso }}</td>
                 <td>{{ $inscripcion->fecha_inscripcion }}</td>
                 <td>
-                  {{-- <a href="{{ route('inscripciones.edit', ['inscripcion'=>$inscripcion->id]) }}"
-                    class="btn btn-secondary">Editar</a> --}}
+                  <a href="{{ route('inscripciones.edit', ['inscripcion'=>$inscripcion->id]) }}"
+                    class="btn btn-secondary">Editar</a>
                     <form action="{{ route('inscripciones.destroy', ['inscripcion' => $inscripcion->id]) }}"
                       method='POST' style="display:inline-block">
                       @method('delete')
