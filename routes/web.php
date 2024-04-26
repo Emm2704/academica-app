@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CursoController;
 use App\Http\Controllers\EstudianteController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,27 +23,13 @@ Route::get('/', function () {
 
 
 // Estudiantes
-
 Route::resource('estudiantes', EstudianteController::class);
 
 
-Route::get('/editarestudiante', function () {
-    return view('estudiantes.edit');
-});
+
 
 // Cursos
-
-Route::get('/cursos', function () {
-    return view('cursos.index');
-})->name('cursos.index');
-
-Route::get('/nuevocurso', function () {
-    return view('cursos.new');
-});
-
-Route::get('/editarcurso', function () {
-    return view('cursos.edit');
-});
+Route::resource('cursos', CursoController::class);
 
 
 // Inscripciones

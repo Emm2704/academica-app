@@ -24,24 +24,28 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Duracion</th>
-                <th scope="col">Acciones</th>
+                {{-- <th scope="col">Acciones</th> --}}
                 
               </tr>
             </thead>
-            <tbody>
-              <td scope="col">1234</td>
-              <td scope="col">Música</td>
-              <td scope="col">Descripcion</td>
-              <td scope="col">5 Hrs</td>
-              <td scope="col">
-                <a class="btn btn-info">Editar</a>
-                <a class="btn btn-danger">Eliminar</a>
-              </td>
-                  </form>
-                </td>
-              </tr>
-             
-            </tbody>
+            @foreach ($cursos as $curso)
+            <tr>
+              <th scope="row">{{ $curso->id }}</th>
+              <td>{{ $curso->nombre }}</td>
+              <td>{{ $curso->descripcion }}</td>
+              <td>{{ $curso->duracion }}</td>
+              {{-- <td>
+                <a href="{{ route('estudiantes.edit', ['estudiante'=>$estudiante->id]) }}"
+                  class="btn btn-secondary">Editar</a>
+                <form action="{{ route('estudiantes.destroy', ['estudiante' => $estudiante->id]) }}"
+                  method='POST' style="display:inline-block">
+                  @method('delete')
+                  @csrf
+                  <input class="btn btn-danger" type="submit" value="Eliminar">
+                </form>
+              </td> --}}
+            </tr>
+            @endforeach
           </table>
 
     </div>
