@@ -97,6 +97,12 @@ class EstudianteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $estudiante = Estudiante::find($id);
+        $estudiante -> delete();
+
+        $estudiantes = DB::table('estudiantes')
+        ->orderBy('nombre')
+        ->get();
+        return view('estudiantes.index', ['estudiantes' => $estudiantes]);
     }
 }

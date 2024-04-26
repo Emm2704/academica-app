@@ -26,6 +26,7 @@
                 <th scope="col">Apellido</th>
                 <th scope="col">Fecha de nacimiento</th>
                 <th scope="col">Correo</th>
+                <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -36,6 +37,14 @@
                 <td>{{ $estudiante->apellido }}</td>
                 <td>{{ $estudiante->fechanacimiento }}</td>
                 <td>{{ $estudiante->email }}</td>
+                <td>
+                  <form action="{{ route('estudiantes.destroy', ['estudiante' => $estudiante->id]) }}"
+                    method='POST' style="display:inline-block">
+                    @method('delete')
+                    @csrf
+                    <input class="btn btn-danger" type="submit" value="Eliminar">
+                  </form>
+                </td>
               </tr>
               @endforeach
             </tbody>
