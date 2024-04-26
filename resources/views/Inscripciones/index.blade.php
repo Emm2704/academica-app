@@ -22,20 +22,30 @@
             <thead>
               <tr>
                 <th scope="col">Codigo</th>
-                <th scope="col">Estudiante</th>
-                <th scope="col">Curso</th>
+                <th scope="col">ID Estudiante</th>
+                <th scope="col">ID Curso</th>
                 <th scope="col">Fecha de inscripcion</th>
               </tr>
             </thead>
             <tbody>
-              
-                 
-                
-                 
+              @foreach ($inscripciones as $inscripcion)
+              <tr>
+                <th scope="row">{{ $inscripcion->id }}</th>
+                <td>{{ $inscripcion->estudiante_id }}</td>
+                <td>{{ $inscripcion->curso_id }}</td>
+                <td>{{ $inscripcion->fecha_inscripcion }}</td>
+                {{-- <td>
+                  <a href="{{ route('estudiantes.edit', ['estudiante'=>$estudiante->id]) }}"
+                    class="btn btn-secondary">Editar</a>
+                  <form action="{{ route('estudiantes.destroy', ['estudiante' => $estudiante->id]) }}"
+                    method='POST' style="display:inline-block">
+                    @method('delete')
+                    @csrf
+                    <input class="btn btn-danger" type="submit" value="Eliminar">
                   </form>
-                </td>
+                </td> --}}
               </tr>
-             
+              @endforeach
             </tbody>
           </table>
 

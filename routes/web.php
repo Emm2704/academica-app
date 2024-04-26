@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\InscripcionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,14 +35,4 @@ Route::resource('cursos', CursoController::class);
 
 // Inscripciones
 
-Route::get('/inscripciones', function () {
-    return view('inscripciones.index');
-})->name('inscripciones.index');
-
-Route::get('/nuevainscripcion', function () {
-    return view('inscripciones.new');
-});
-
-Route::get('/editarinscripcion', function () {
-    return view('inscripciones.edit');
-});
+Route::resource('inscripciones', InscripcionController::class);
